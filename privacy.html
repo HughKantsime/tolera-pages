@@ -31,7 +31,8 @@ a { color: #1a8a7d; }
 <p>If enabled, your data syncs across your devices via Apple iCloud (CloudKit) using your personal iCloud account. Apple manages this storage; Tolera does not have access to your iCloud data and cannot read it.</p>
 
 <h2>AI Meal Analysis</h2>
-<p>When you ask Tolera to analyze a meal photo or text description, that content is sent to a Cloudflare Worker that we operate. The Worker forwards the request to Anthropic's Claude API for analysis and returns the results to your device. We do not log, store, or retain meal photos or descriptions on our servers. A per-device identifier is used solely for rate limiting.</p>
+<p>When you ask Tolera to analyze a meal photo or text description, that content is sent to a Cloudflare Worker that we operate. The Worker forwards the request to Anthropic's Claude API for analysis and returns the results to your device. We do not log, store, or retain meal photos or descriptions on our servers.</p>
+<p>A randomly generated per-device identifier (UUID) is included with each request solely for rate limiting. This identifier is not linked to any account, name, or other personal information. It is stored in the iOS Keychain on your device and persists across reinstalls so we can enforce rate limits fairly. It is not shared with any third party.</p>
 
 <h2>Barcode Lookups</h2>
 <p>When you scan a barcode, Tolera queries Open Food Facts and the USDA FoodData Central API through our Cloudflare Worker. Only the barcode itself is sent — no personal data.</p>
@@ -46,7 +47,7 @@ a { color: #1a8a7d; }
 <p>We do not sell, rent, or share your data with anyone.</p>
 
 <h2>Your Rights</h2>
-<p>You can delete all Tolera data at any time by uninstalling the app, which removes all local storage. To remove iCloud data, use Settings → Apple ID → iCloud → Manage Storage → Tolera.</p>
+<p>You can delete all Tolera meal, symptom, and protocol data at any time from inside the app via Profile → Data → Clear All Data, or by uninstalling the app. The randomly generated device identifier described above is stored in the iOS Keychain and is not linked to your identity. To remove iCloud data, use Settings → Apple ID → iCloud → Manage Storage → Tolera.</p>
 
 <h2>Contact</h2>
 <p>Questions? Email <a href="mailto:support@tolera.app">support@tolera.app</a> or open an issue at <a href="https://github.com/HughKantsime/tolera/issues">github.com/HughKantsime/tolera/issues</a>.</p>
